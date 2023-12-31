@@ -25,7 +25,7 @@ model Folder {
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  owner     User     @relation(fields: [ownerId], references: [id])
+  owner     User     @relation(fields: [ownerId], references: [id], onDelete: Cascade) 
   ownerId   String
   wikis     Wiki[]
 }
@@ -36,6 +36,6 @@ model Wiki {
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  folder    Folder   @relation(fields: [folderId], references: [id])
+  folder    Folder   @relation(fields: [folderId], references: [id], onDelete: Cascade)
   folderId  String
 }
