@@ -16,13 +16,23 @@ export const AuthProvider = ({ children }) => {
     const localData = localStorage.getItem("token");
     return localData ? localData : null;
   });
+
+  const logout = () => {
+    setAuth(false);
+    localStorage.removeItem("token");
+  };
+  const login = (token) => {
+    setAuth(true);
+    setToken(token);
+    localStorage.setItem("token", token);
+  };
   return (
     <AuthContext.Provider
       value={{
         auth,
-        setAuth,
         token,
-        setToken,
+        logout,
+        login,
       }}
     >
       {children}
