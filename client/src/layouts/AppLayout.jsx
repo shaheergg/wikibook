@@ -7,7 +7,7 @@ import {
   ChevronDoubleLeftIcon,
   PlusIcon,
   ChevronDoubleRightIcon,
-  ShareIcon,
+  PlusCircleIcon,
 } from "@heroicons/react/24/outline";
 import { useDrawer } from "../context/DrawerContext";
 import { useAuth } from "../context/AuthContext";
@@ -78,8 +78,8 @@ function AppLayout({ children }) {
             to="/"
             className="block px-4 py-2 font-bold text-neutral-500 hover:bg-neutral-200"
           >
-            <ArrowLeftStartOnRectangleIcon className="inline-block w-5 h-5 mr-2" />
-            Logout
+            <PlusCircleIcon className="inline-block w-5 h-5 mr-2" />
+            New Folder
           </Link>
         </div>
         <div className="py-4 overflow-y-auto scrollbar h-96 font-inter">
@@ -121,7 +121,7 @@ function AppLayout({ children }) {
         </div>
       </div>
       <div className="flex-1">
-        <div className="flex items-center justify-between p-2">
+        <div className="sticky top-0 z-10 flex items-center justify-between p-2 bg-white">
           <button
             onClick={toggleDrawer}
             className="p-2 rounded-md hover:bg-neutral-200 text-neutral-600"
